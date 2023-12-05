@@ -131,6 +131,7 @@ A future version of `cryo` will be able to bypass JSON-RPC and query node data d
     - `cryo_freeze`: core cryo code
     - `cryo_python`: cryo python adapter
     - `cryo_to_df`: procedural macro for generating dataset definitions
+    - `abi`: fetch the abis from etherscan (no need to manually specify the event signature and topic0)
 - Do not use panics (including `panic!`, `todo!`, `unwrap()`, and `expect()`) except in the following circumstances: tests, build scripts, lazy static blocks, and procedural macros
 
 ## Documentation
@@ -219,7 +220,7 @@ Dataset-specific Options:
       --topic3 <TOPIC3>...           Topic3(s)
       --event-signature <SIG>...     Event signature for log decoding
       --inner-request-size <BLOCKS>  Blocks per request (eth_getLogs) [default: 1]
-
+      --event-abi                    Query the abis from etherscan, when specifying the etherscan apikey from `apikey` environment variable
 Optional Subcommands:
       cryo help                      display help message
       cryo help syntax               display block + tx specification syntax

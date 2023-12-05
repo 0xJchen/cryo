@@ -108,6 +108,7 @@ type Result<T> = ::core::result::Result<T, CollectError>;
 impl<P: JsonRpcClient> Fetcher<P> {
     /// Returns an array (possibly empty) of logs that match the filter
     pub async fn get_logs(&self, filter: &Filter) -> Result<Vec<Log>> {
+        // println!("Filter: {:?}", filter);
         let _permit = self.permit_request().await;
         Self::map_err(self.provider.get_logs(filter).await)
     }

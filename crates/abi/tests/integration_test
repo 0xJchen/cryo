@@ -1,0 +1,22 @@
+use etherscan_abi_fetcher;
+use etherscan_abi_fetcher::etherscan_client::EtherscanClient;
+
+#[tokio::test]
+async fn integration_test_valid_address() {
+    let client = EtherscanClient::new();
+    // Use a valid address for the integration test
+    let result = client.get_abi("valid_test_address").await;
+    assert!(result.is_ok());
+    // Assert the expected structure of the ABI, event names, etc.
+}
+
+#[tokio::test]
+async fn integration_test_invalid_address() {
+    let client = EtherscanClient::new();
+    let result = client.get_abi("invalid_address").await;
+    assert!(result.is_err());
+    // Assert the type of error, if applicable
+}
+
+// Further integration tests can simulate network issues,
+// API rate limits, etc.

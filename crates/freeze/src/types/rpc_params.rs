@@ -1,6 +1,7 @@
 use crate::{err, CollectError};
 use ethers::prelude::*;
-
+// import event_hash.rs's calculate_topic_0 function
+// use crate::event_hash::calculate_topic_0;
 /// represents parameters for a single rpc call
 #[derive(Default, Clone, Debug)]
 pub struct Params {
@@ -97,6 +98,9 @@ impl Params {
         let (start, end) = self.block_range()?;
         let block_option =
             FilterBlockOption::Range { from_block: Some(start.into()), to_block: Some(end.into()) };
+        // let calculated_topic0 = calculate_topic_0();
+        // print the topic0
+        // println!("====>Topic 0: {:?}", calculated_topic0);
         let filter = Filter {
             block_option,
             address: self.address.clone().map(|x| ValueOrArray::Value(H160::from_slice(&x))),
