@@ -244,6 +244,10 @@ pub struct Args {
     #[arg(long, value_name = "SIG", help_heading = "Dataset-specific Options", num_args(1..))]
     pub event_signature: Option<String>,
 
+    /// Event signature for fetching log from etherscan
+    #[arg(long, value_name = "ABI", help_heading = "Dataset-specific Options", num_args(1..))]
+    pub event_abi: Option<String>,
+
     /// Blocks per request (eth_getLogs)
     #[arg(
         long,

@@ -12,9 +12,15 @@ mod datasets;
 mod freeze;
 mod multi_datasets;
 mod types;
-
+// mod event_hash;
 pub use collect::collect;
 pub use datasets::*;
 pub use freeze::freeze;
 pub use multi_datasets::*;
 pub use types::*;
+
+// pub fn display_topics() {
+//     // ...
+//     event_hash::calculate_topic_0();
+//     // ...
+// }
